@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "game.h"
 
+#include "game.h"
 
 int main() {
     const int FPS = 60;
@@ -9,7 +9,7 @@ int main() {
     int frameTime;
 
     init("Lets gooOo!!!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, false);
-    while (running()){
+    while (running()) {
         frameStart = SDL_GetTicks();
         handleEvents();
         update();

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+// SDL_Renderer *renderer;
 extern void init(
 const char *title, 
 size_t xpos, 

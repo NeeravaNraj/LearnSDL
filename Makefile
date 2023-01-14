@@ -14,6 +14,7 @@ link: compile
 	@echo Linking....
 	@echo -----------
 	$(LD) -o $(BIN_DIR)/main.bin $(OBJ_FILES) $(LFLAGS)
+	@echo Done.
 
 compile: $(BUILD_DIR)
 	@echo -------------
