@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "sdl.h": "c",
+    "sdl_main.h": "c",
+    "game.h": "c",
+    "sdl_image.h": "c"
+  },
+  "C_Cpp.default.cStandard": "c99"
+}
