@@ -3,7 +3,9 @@
     "sdl.h": "c",
     "sdl_main.h": "c",
     "game.h": "c",
-    "sdl_image.h": "c"
+    "sdl_image.h": "c",
+    "text.h": "c",
+    "texmgr.h": "c"
   },
   "C_Cpp.default.cStandard": "c99",
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}"

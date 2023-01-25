@@ -4,9 +4,8 @@
 #include <SDL2/SDL_image.h>
 #include <stdbool.h>
 #include <stddef.h>
-#define SCREEN_W 1280
-#define SCREEN_H 720
-
+#define SCREEN_W 800
+#define SCREEN_H 640
 typedef struct {
     Uint8 r, g, b, a;
 } Color;
@@ -31,5 +30,7 @@ extern void handleEvents(void);
 extern void update(void);
 extern void render(void);
 extern void clean(void);
+extern char *getScore(void);
+extern int getScoreInt(void);
 extern bool isRunning;
 #endif

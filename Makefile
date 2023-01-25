@@ -2,12 +2,15 @@ BUILD_DIR = build
 SRC_DIR = src
 LD = gcc
 OBJ_FILES = $(shell find $(BUILD_DIR)/o -type f -name "*.o")
-LFLAGS = -lSDL2 -lSDL2_image
+LFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
 BIN_DIR = $(BUILD_DIR)/bin
 
-.PHONY: all link compile clean
+.PHONY: all link compile clean run deps
 
-all: link
+all: run
+
+run: link
+	@./run.sh
 
 link: compile
 	@echo -----------
@@ -25,6 +28,9 @@ compile: $(BUILD_DIR)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 	mkdir -p $(BIN_DIR)
+
+deps:
+	./deps/deps.sh
 
 clean:
 	rm -rf build

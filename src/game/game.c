@@ -2,13 +2,24 @@
 
 #include <stdio.h>
 
-#include "gameobj.h"
 #include "shapes.h"
 #include "snake.h"
-#include "texmgr.h"
+#include "text.h"
 
 bool isRunning;
 App app;
+static TextPos pos = {
+    .x = 15,
+    .y = 3,
+    .h = 64,
+    .w = 32
+};
+static TextPos pos2 = {
+    .x = 15,
+    .y = 3,
+    .h = 64,
+    .w = 64
+};
 
 SDL_Event ev;
 
@@ -43,9 +54,15 @@ void init(
             printf("Renderer initialized\n");
         }
 
-        isRunning = true;  // Starts game loop
-        initSnake();
-        initApple();
+        if (TTF_Init() < 0){
+            printf("Error initializing font!\n %s", TTF_GetError());
+            return;
+        }
+        isRunning = true;   // Starts game loop
+        initFont(16);         // Sets up font
+        initSnake();        // Sets up Snake body
+        initApple();        // Sets up Apple
+
     } else {
         // Initialization has failed
         printf("Error Initializing!\n %s", SDL_GetError());
@@ -92,6 +109,8 @@ void render(void) {
     SDL_RenderClear(app.renderer);
     // Render stuff from here on out
     renderSnake(app.renderer);
+    if (getScoreInt() < 10) putText(app.renderer, getScore(), pos);
+    else putText(app.renderer, getScore(), pos2);
     SDL_RenderPresent(app.renderer);
 }
 
