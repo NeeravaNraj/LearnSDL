@@ -314,4 +314,5 @@ void renderSnake(SDL_Renderer *ren) {
 void cleanSnake(void) {
     // free memory of the snake tail
     free(Tail);
+    free(str);
 }
