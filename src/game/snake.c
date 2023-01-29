@@ -19,6 +19,8 @@ typedef enum {
 
 Direction currDirection = up;
 
+int hx, hy;
+
 char *str;
 
 int roundint(int n) {
@@ -225,15 +227,19 @@ void followHead(void) {
     }
 }
 
-void goToOtherSide(void){
+void goToOtherSide(void) {
     int hx, hy;
     hx = Head.rect.x;
     hy = Head.rect.y;
-    if (hy < 0) Head.rect.y = SCREEN_H;
-    else if  (hy > SCREEN_H) Head.rect.y = 0; 
+    if (hy < 0)
+        Head.rect.y = SCREEN_H;
+    else if (hy > SCREEN_H)
+        Head.rect.y = 0;
 
-    if (hx < 0) Head.rect.x = SCREEN_W;
-    else if (hx > SCREEN_W) Head.rect.x = 0;
+    if (hx < 0)
+        Head.rect.x = SCREEN_W;
+    else if (hx > SCREEN_W)
+        Head.rect.x = 0;
 }
 
 void moveSnake(void) {
@@ -249,32 +255,48 @@ void moveSnake(void) {
 void changeDirection(int dir) {
     switch (dir) {
         case 0:
-            if (currDirection == up)
-                break;
-            if (currDirection == down)
-                break;
-            currDirection = up;
+            if (Head.rect.x != hx || Head.rect.y != hy) {
+                if (currDirection == up)
+                    break;
+                if (currDirection == down)
+                    break;
+                currDirection = up;
+                hx = Head.rect.x;
+                hy = Head.rect.y;
+            }
             break;
         case 1:
-            if (currDirection == down)
-                break;
-            if (currDirection == up)
-                break;
-            currDirection = down;
+            if (Head.rect.x != hx || Head.rect.y != hy) {
+                if (currDirection == down)
+                    break;
+                if (currDirection == up)
+                    break;
+                currDirection = down;
+                hx = Head.rect.x;
+                hy = Head.rect.y;
+            }
             break;
         case 2:
-            if (currDirection == left)
-                break;
-            if (currDirection == right)
-                break;
-            currDirection = left;
+            if (Head.rect.x != hx || Head.rect.y != hy) {
+                if (currDirection == left)
+                    break;
+                if (currDirection == right)
+                    break;
+                currDirection = left;
+                hx = Head.rect.x;
+                hy = Head.rect.y;
+            }
             break;
         case 3:
-            if (currDirection == right)
-                break;
-            if (currDirection == left)
-                break;
-            currDirection = right;
+            if (Head.rect.x != hx || Head.rect.y != hy) {
+                if (currDirection == right)
+                    break;
+                if (currDirection == left)
+                    break;
+                currDirection = right;
+                hx = Head.rect.x;
+                hy = Head.rect.y;
+            }
             break;
         default:
             break;

@@ -1,7 +1,5 @@
 #include "game.h"
-
 #include <stdio.h>
-
 #include "shapes.h"
 #include "snake.h"
 #include "text.h"
@@ -21,7 +19,6 @@ static TextPos pos2 = {
     .w = 64
 };
 
-SDL_Event ev;
 
 void init(
     const char *title,
@@ -71,6 +68,7 @@ void init(
 }
 
 void handleEvents(void) {
+    SDL_Event ev;
     while (SDL_PollEvent(&ev)) {
         switch (ev.type) {
             case SDL_QUIT:
